@@ -1,11 +1,11 @@
-import sys
+import sys # provides information about the current Python execution environment.
 from networksecurity.logging import logger
 
-class NetworkSecurityException(Exception):
+class NetworkSecurityException(Exception): # inherits from Python's built-in:Exception
     def __init__(self,error_message,error_details:sys):
         self.error_message = error_message
-        _,_,exc_tb = error_details.exc_info()
-        
+        _,_,exc_tb = error_details.exc_info() #gives information about the exception currently being handled.(exception type,exception,traceback)
+         # traceback contains information about where the error occurred
         self.lineno=exc_tb.tb_lineno
         self.file_name=exc_tb.tb_frame.f_code.co_filename 
     
